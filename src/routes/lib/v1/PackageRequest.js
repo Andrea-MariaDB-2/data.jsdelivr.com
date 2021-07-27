@@ -12,6 +12,7 @@ const BadVersionError = require('../errors/BadVersionError');
 const Package = require('../../../models/Package');
 const PackageListing = require('../../../models/PackageListing');
 const PackageVersion = require('../../../models/PackageVersion');
+const CdnJsPackage = require('../../../models/CdnJsPackage');
 const dateRange = require('../../utils/dateRange');
 const sumDeep = require('../../utils/sumDeep');
 
@@ -42,6 +43,18 @@ class PackageRequest extends BaseRequest {
 		// the requested version was actually a range or a tag. Error responses don't return the version field.
 		if (response.version && response.version !== this.params.version) {
 			throw new BadVersionError();
+		}
+
+		let predictedMainFile = await CdnJsPackage.getPackageEntrypoint(this.params.name, this.params.version);
+
+		if (predictedMainFile) {
+			response.predicted = '/' + predictedMainFile.replace(/^\//, '');
+		}
+
+		let mostUsed = await PackageVersion.getMostUsedFile(this.params.type, this.params.name, this.params.version);
+
+		if (mostUsed) {
+			response.mostUsed = mostUsed.filename;
 		}
 
 		return _.omit(response, 'version');
