@@ -25,7 +25,7 @@
 		"joi": "^17.4.0",
 		"knex": "^0.95.6",
 		"koa": "^2.13.1",
-		"koa-compress": "^5.0.1",
+		"koa-compress": "^5.1.0",
 		"koa-conditional-get": "^3.0.0",
 		"koa-etag": "^4.0.0",
 		"koa-favicon": "^2.1.0",
