@@ -13,7 +13,7 @@
 		"config-mapper-env": "^1.0.1",
 		"dedent-js": "^1.0.1",
 		"elastic-apm-node": "^3.17.0",
-		"elastic-apm-utils": "^3.0.0",
+		"elastic-apm-utils": "^3.0.2",
 		"fs-extra": "^10.0.0",
 		"gh-badges": "^2.2.2",
 		"got": "^9.6.0",
