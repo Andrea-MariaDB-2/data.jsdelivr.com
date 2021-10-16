@@ -24,7 +24,7 @@
 		"is-semver-static": "^1.0.0",
 		"joi": "^17.4.0",
 		"knex": "^0.95.6",
-		"koa": "^2.13.1",
+		"koa": "^2.13.3",
 		"koa-compress": "^5.0.1",
 		"koa-conditional-get": "^3.0.0",
 		"koa-etag": "^4.0.0",
